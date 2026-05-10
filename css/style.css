@@ -1,49 +1,96 @@
 body {
-background-color: #FFFFFF;
-color: #000000;
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
 /* LOGO */
 .logo {
-height: 90px;
+  height: 70px;
 }
 
 /* HEADER */
 header {
-border-bottom: 2px solid #000000;
-padding: 15px 0;
+  border-bottom: 2px solid #000000;
+  padding: 15px 0;
 }
 
 /* NAV */
 nav a {
-margin-left: 15px;
-color: #000000;
-text-decoration: none;
+  margin-left: 15px;
+  color: #000000;
+  text-decoration: none;
 }
 
 nav a.active {
-color: #3A86FF;
-font-weight: bold;
+  color: #3A86FF;
+  font-weight: bold;
 }
 
 nav a:hover {
-color: #3A86FF;
+  color: #3A86FF;
 }
 
 /* BUTTON */
 .btn-primary {
-background-color: #3A86FF;
-border: none;
+  background-color: #3A86FF;
+  border: none;
 }
 
 /* CARDS */
 .card {
-border-radius: 10px;
-border: 1px solid #ccc;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CARD LINKS */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link .card:hover {
+  border-color: #3A86FF;
+  box-shadow: 0 2px 8px rgba(58, 134, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+/* PROJECT IMAGE PLACEHOLDER */
+.card-img-placeholder {
+  background-color: #e9ecef;
+  height: 160px;
+  border-radius: 10px 10px 0 0;
+}
+
+.project-img-placeholder {
+  background-color: #e9ecef;
+  height: 260px;
+  width: 100%;
+}
+
+/* LEAFLET KAART */
+#kaart {
+  height: 280px;
+  width: 100%;
+  border-radius: 8px;
 }
 
 /* FOOTER */
 footer {
-background-color: #000000;
-color: #FFFFFF;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+footer a {
+  color: #3A86FF;
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 576px) {
+  nav a {
+    margin-left: 8px;
+    font-size: 0.9rem;
+  }
+  .logo {
+    height: 50px;
+  }
 }

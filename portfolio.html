@@ -2,8 +2,8 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Portfolio</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio – Samir Azaoum Najah</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/fonts.css">
@@ -14,38 +14,132 @@
 
 <header>
 <div class="container d-flex justify-content-between align-items-center">
-
-<img src="./assets/images/logo.png" class="logo">
-
-<nav>
-<a href="index.html">Home</a>
-<a href="portfolio.html" class="active">Portfolio</a>
-<a href="contact.html">Contact</a>
-</nav>
-
+  <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo Samir Azaoum Najah"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </div>
 </header>
 
 <main class="container mt-4">
 
-<h2>MIJN PROJECTEN</h2>
+  <h1 class="mb-4">Mijn Projecten</h1>
 
-<div class="row g-3">
+  <div class="row g-4">
 
-<div class="col-md-4"><div class="card p-4 text-center">Project 1</div></div>
-<div class="col-md-4"><div class="card p-4 text-center">Project 2</div></div>
-<div class="col-md-4"><div class="card p-4 text-center">Project 3</div></div>
+    <div class="col-md-4">
+      <a href="netwerk-configuratie.html" class="card-link">
+        <article class="card h-100">
+          <figure class="mb-0">
+            <div class="card-img-placeholder"></div>
+            <figcaption class="visually-hidden">Netwerkconfiguratie project</figcaption>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title h5">Netwerkconfiguratie</h2>
+            <p class="card-text small">Opzetten van een VLAN-netwerk met routing &amp; switching via Cisco-apparatuur.</p>
+            <span class="badge bg-dark">Netwerken</span>
+            <span class="badge bg-dark">Cisco</span>
+          </div>
+        </article>
+      </a>
+    </div>
 
-<div class="col-md-4"><div class="card p-4 text-center">Project 4</div></div>
-<div class="col-md-4"><div class="card p-4 text-center">Project 5</div></div>
-<div class="col-md-4"><div class="card p-4 text-center">Project 6</div></div>
+    <div class="col-md-4">
+      <a href="webserver-setup.html" class="card-link">
+        <article class="card h-100">
+          <figure class="mb-0">
+            <div class="card-img-placeholder"></div>
+            <figcaption class="visually-hidden">Webserver setup project</figcaption>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title h5">Webserver Setup</h2>
+            <p class="card-text small">Installatie en configuratie van Apache/Nginx op een Linux-server.</p>
+            <span class="badge bg-dark">Linux</span>
+            <span class="badge bg-dark">Apache</span>
+          </div>
+        </article>
+      </a>
+    </div>
 
-</div>
+    <div class="col-md-4">
+      <a href="portfolio-website.html" class="card-link">
+        <article class="card h-100">
+          <figure class="mb-0">
+            <div class="card-img-placeholder"></div>
+            <figcaption class="visually-hidden">Portfolio website project</figcaption>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title h5">Portfolio Website</h2>
+            <p class="card-text small">Responsieve portfoliowebsite gemaakt met HTML5, CSS3 en Bootstrap.</p>
+            <span class="badge bg-dark">HTML</span>
+            <span class="badge bg-dark">CSS</span>
+            <span class="badge bg-dark">Bootstrap</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="linux-beheer.html" class="card-link">
+        <article class="card h-100">
+          <figure class="mb-0">
+            <div class="card-img-placeholder"></div>
+            <figcaption class="visually-hidden">Linux beheer project</figcaption>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title h5">Linux Beheer</h2>
+            <p class="card-text small">Gebruikers, rechten en services beheren op een Ubuntu-server.</p>
+            <span class="badge bg-dark">Linux</span>
+            <span class="badge bg-dark">Ubuntu</span>
+            <span class="badge bg-dark">Bash</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="database-ontwerp.html" class="card-link">
+        <article class="card h-100">
+          <figure class="mb-0">
+            <div class="card-img-placeholder"></div>
+            <figcaption class="visually-hidden">Database ontwerp project</figcaption>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title h5">Database Ontwerp</h2>
+            <p class="card-text small">Relationeel databaseontwerp en SQL-queries voor een inventarissysteem.</p>
+            <span class="badge bg-dark">SQL</span>
+            <span class="badge bg-dark">MySQL</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="iot-project.html" class="card-link">
+        <article class="card h-100">
+          <figure class="mb-0">
+            <div class="card-img-placeholder"></div>
+            <figcaption class="visually-hidden">IoT project met Raspberry Pi</figcaption>
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title h5">IoT-project</h2>
+            <p class="card-text small">Temperatuur- en vochtigheidsmonitoring met een Raspberry Pi en sensoren.</p>
+            <span class="badge bg-dark">IoT</span>
+            <span class="badge bg-dark">Raspberry Pi</span>
+            <span class="badge bg-dark">Python</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+  </div>
 
 </main>
 
 <footer class="text-center p-3 mt-4">
-Contact | Social Media
+  <p>&copy; 2026 Samir Azaoum Najah | <a href="contact.html">Contact</a></p>
 </footer>
 
 </body>

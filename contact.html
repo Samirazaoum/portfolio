@@ -2,59 +2,81 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Contact</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact – Samir Azaoum Najah</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 
 <body>
 
 <header>
 <div class="container d-flex justify-content-between align-items-center">
-
-<img src="./assets/images/logo.png" class="logo">
-
-<nav>
-<a href="index.html">Home</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="contact.html" class="active">Contact</a>
-</nav>
-
+  <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo Samir Azaoum Najah"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
 </div>
 </header>
 
 <main class="container mt-4">
 
-<h2>CONTACT</h2>
+  <h1 class="mb-4">Contact</h1>
 
-<div class="row">
+  <div class="row g-4">
 
-<div class="col-md-8">
-<form>
-<input type="text" class="form-control mb-2" placeholder="Naam">
-<input type="email" class="form-control mb-2" placeholder="E-mail">
-<textarea class="form-control mb-2" placeholder="Bericht"></textarea>
-<button class="btn btn-primary">Verstuur</button>
-</form>
-</div>
+    <div class="col-md-7">
+      <section class="card p-4 mb-4">
+        <h2 class="h4 mb-3">Stuur een bericht</h2>
+        <form name="contact" method="POST" netlify netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="visually-hidden">
+            <label>Niet invullen: <input name="bot-field"></label>
+          </p>
+          <div class="mb-3">
+            <label for="naam" class="form-label">Naam</label>
+            <input type="text" id="naam" name="naam" class="form-control" placeholder="Jouw naam" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="jouw@email.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="bericht" class="form-label">Bericht</label>
+            <textarea id="bericht" name="bericht" class="form-control" rows="5" placeholder="Schrijf hier je bericht..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Verstuur</button>
+        </form>
+      </section>
+    </div>
 
-<div class="col-md-4">
-<h5>CONTACT INFO</h5>
-<p>Email: example@mail.com</p>
-<p>Tel: 0123456789</p>
-<p>Locatie: België</p>
-</div>
+    <aside class="col-md-5">
+      <div class="card p-3 mb-3">
+        <h2 class="h5">Contactinfo</h2>
+        <p class="mt-2"><strong>E-mail:</strong> samir@voorbeeld.be</p>
+        <p><strong>Tel:</strong> +32 470 00 00 00</p>
+        <p><strong>Locatie:</strong> Antwerpen, België</p>
+      </div>
+      <div class="card p-3">
+        <h2 class="h5 mb-2">Mijn locatie</h2>
+        <div id="kaart"></div>
+      </div>
+    </aside>
 
-</div>
+  </div>
 
 </main>
 
 <footer class="text-center p-3 mt-4">
-Contact | Social Media
+  <p>&copy; 2026 Samir Azaoum Najah | <a href="contact.html">Contact</a></p>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/map.js"></script>
 </body>
 </html>
