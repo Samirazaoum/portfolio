@@ -1,57 +1,163 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<title>Project</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project | Samir Azaoum</title>
+  <link rel="icon" href="images/logo.png">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/fonts.css">
-<link rel="stylesheet" href="css/style.css">
+  <!-- lettertype: Montserrat, alleen de diktes die ik gebruik (400, 600, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind via de CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- mijn eigen kleuren -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            olive: '#606c38',
+            forest: '#283618',
+            cream: '#fefae0',
+          },
+        },
+      },
+    }
+  </script>
 </head>
 
-<body>
+<body class="bg-cream text-forest min-h-screen flex flex-col">
 
-<header>
-<div class="container d-flex justify-content-between align-items-center">
+  <!-- HEADER + NAV (op elke pagina hetzelfde) -->
+  <header class="bg-cream border-b-2 border-olive">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 rounded">
+        <img src="images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
+        <span class="font-bold uppercase tracking-widest text-sm">Samir Azaoum</span>
+      </a>
 
-<img src="./assets/images/logo.png" class="logo">
+      <!-- knop om het menu te openen op een gsm -->
+      <button id="menuKnop" type="button" class="md:hidden p-2 rounded hover:bg-olive hover:text-cream" aria-expanded="false" aria-controls="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <span class="sr-only">Menu openen</span>
+      </button>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="contact.html">Contact</a>
-</nav>
+      <!-- het menu: onder elkaar op gsm, naast elkaar vanaf tablet -->
+      <nav id="menu" class="hidden w-full md:block md:w-auto" aria-label="Hoofdmenu">
+        <ul class="flex flex-col gap-1 py-2 md:flex-row md:py-0">
+          <li><a href="index.html" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Home</a></li>
+          <li><a href="portfolio.html" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Portfolio</a></li>
+          <li><a href="project.html" aria-current="page" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Project</a></li>
+          <li><a href="contact.html" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-</div>
-</header>
+  <!-- MAIN + ASIDE -->
+  <div class="max-w-6xl mx-auto w-full px-4 py-8 flex-1 flex flex-col lg:flex-row gap-6">
 
-<main class="container mt-4">
+    <!-- MAIN -->
+    <main class="lg:w-3/4 bg-white border-2 border-olive rounded-lg p-6">
+      <a href="portfolio.html" class="inline-flex items-center gap-1 text-sm font-semibold text-olive hover:underline">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Terug naar portfolio
+      </a>
 
-<h2>PROJECT TITEL</h2>
+      <p class="uppercase tracking-widest text-sm font-semibold text-olive mt-4 mb-1">Project</p>
+      <h1 class="text-3xl font-bold tracking-tight mb-6">Netwerkconfiguratie</h1>
 
-<div class="row">
+      <!-- afbeelding met bijschrift -->
+      <figure class="mb-6 md:w-3/4">
+        <img src="images/aquarel-golven.avif" alt="Groene en crèmekleurige golvende vormen" width="626" height="351" class="w-full aspect-video object-cover rounded-lg border-2 border-olive">
+        <figcaption class="mt-2 text-sm text-forest/70">Een sfeerbeeld voor dit project (later vervang ik dit door een screenshot van mijn netwerk).</figcaption>
+      </figure>
 
-<div class="col-md-8">
-<div class="card mb-3" style="height:250px;"></div>
+      <h2 class="text-xl font-bold tracking-tight mb-2">Beschrijving</h2>
+      <p class="mb-3">
+        In dit project heb ik een VLAN-netwerk opgezet met routing en switching via Cisco-apparatuur.
+        Ik heb subnetten berekend, VLANs geconfigureerd op een Cisco-switch en inter-VLAN routing ingesteld via een router.
+      </p>
+      <p class="mb-6">
+        Dit project heeft me geholpen om de praktische kant van netwerken beter te begrijpen.
+      </p>
 
-<h5>TOOLS / TECHNOLOGIE</h5>
-<span class="badge bg-dark">HTML</span>
-<span class="badge bg-dark">CSS</span>
-</div>
+      <h2 class="text-xl font-bold tracking-tight mb-2">Wat ik maakte</h2>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mt-0.5 shrink-0 text-olive" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Subnetten berekend voor het netwerk
+        </li>
+        <li class="flex items-start gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mt-0.5 shrink-0 text-olive" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          VLANs geconfigureerd op een Cisco-switch
+        </li>
+        <li class="flex items-start gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mt-0.5 shrink-0 text-olive" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Inter-VLAN routing ingesteld via een router
+        </li>
+      </ul>
+    </main>
 
-<div class="col-md-4">
-<h4>BESCHRIJVING</h4>
-<p>Beschrijving van het project.</p>
-</div>
+    <!-- ASIDE -->
+    <aside class="lg:w-1/4 bg-olive text-cream rounded-lg p-6 h-fit">
+      <h2 class="text-xl font-bold tracking-tight mb-3">Technologieën</h2>
+      <ul class="flex flex-wrap gap-2">
+        <li class="bg-cream text-forest text-sm font-semibold px-3 py-1 rounded-full">Netwerken</li>
+        <li class="bg-cream text-forest text-sm font-semibold px-3 py-1 rounded-full">Cisco</li>
+        <li class="bg-cream text-forest text-sm font-semibold px-3 py-1 rounded-full">VLAN</li>
+        <li class="bg-cream text-forest text-sm font-semibold px-3 py-1 rounded-full">Packet Tracer</li>
+      </ul>
+    </aside>
+  </div>
 
-</div>
+  <!-- FOOTER (op elke pagina hetzelfde) -->
+  <footer class="bg-forest text-cream">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <p>Samir Azaoum &bull; <a href="contact.html" class="underline underline-offset-4 hover:text-white">Contact</a> &bull; &copy; 2026</p>
 
-</main>
+      <!-- links met alleen een icoon: de tekst staat in sr-only -->
+      <ul class="flex gap-2">
+        <li>
+          <a href="#" class="block p-2 rounded hover:bg-olive">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span class="sr-only">LinkedIn van Samir Azaoum</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 rounded hover:bg-olive">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span class="sr-only">GitHub van Samir Azaoum</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
 
-<footer class="text-center p-3 mt-4">
-Contact | Social Media
-</footer>
+  <!-- gsm menu open en dicht doen -->
+  <script>
+    const knop = document.getElementById('menuKnop');
+    const menu = document.getElementById('menu');
 
+    knop.addEventListener('click', function () {
+      menu.classList.toggle('hidden');
+      const open = !menu.classList.contains('hidden');
+      knop.setAttribute('aria-expanded', open);
+    });
+
+    // met Escape gaat het menu weer dicht
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden') && window.innerWidth < 768) {
+        menu.classList.add('hidden');
+        knop.setAttribute('aria-expanded', 'false');
+        knop.focus();
+      }
+    });
+  </script>
 </body>
 </html>

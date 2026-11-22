@@ -1,146 +1,168 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio – Samir Azaoum Najah</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/fonts.css">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Samir Azaoum</title>
+  <link rel="icon" href="images/logo.png">
+
+  <!-- lettertype: Montserrat, alleen de diktes die ik gebruik (400, 600, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind via de CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- mijn eigen kleuren -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            olive: '#606c38',
+            forest: '#283618',
+            cream: '#fefae0',
+          },
+        },
+      },
+    }
+  </script>
 </head>
 
-<body>
+<body class="bg-cream text-forest min-h-screen flex flex-col">
 
-<header>
-<div class="container d-flex justify-content-between align-items-center">
-  <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo Samir Azaoum Najah"></a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</div>
-</header>
-
-<main class="container mt-4">
-
-  <h1 class="mb-4">Mijn Projecten</h1>
-
-  <div class="row g-4">
-
-    <div class="col-md-4">
-      <a href="netwerk-configuratie.html" class="card-link">
-        <article class="card h-100">
-          <figure class="mb-0">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" class="card-img-top project-card-img" alt="Cisco netwerkapparatuur">
-            <figcaption class="visually-hidden">Netwerkconfiguratie project</figcaption>
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title h5">Netwerkconfiguratie</h2>
-            <p class="card-text small">Opzetten van een VLAN-netwerk met routing &amp; switching via Cisco-apparatuur.</p>
-            <span class="badge bg-dark">Netwerken</span>
-            <span class="badge bg-dark">Cisco</span>
-          </div>
-        </article>
+  <!-- HEADER + NAV (op elke pagina hetzelfde) -->
+  <header class="bg-cream border-b-2 border-olive">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 rounded">
+        <img src="images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
+        <span class="font-bold uppercase tracking-widest text-sm">Samir Azaoum</span>
       </a>
-    </div>
 
-    <div class="col-md-4">
-      <a href="webserver-setup.html" class="card-link">
-        <article class="card h-100">
-          <figure class="mb-0">
-            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&q=80" class="card-img-top project-card-img" alt="Server rack in datacenter">
-            <figcaption class="visually-hidden">Webserver setup project</figcaption>
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title h5">Webserver Setup</h2>
-            <p class="card-text small">Installatie en configuratie van Apache/Nginx op een Linux-server.</p>
-            <span class="badge bg-dark">Linux</span>
-            <span class="badge bg-dark">Apache</span>
-          </div>
+      <!-- knop om het menu te openen op een gsm -->
+      <button id="menuKnop" type="button" class="md:hidden p-2 rounded hover:bg-olive hover:text-cream" aria-expanded="false" aria-controls="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <span class="sr-only">Menu openen</span>
+      </button>
+
+      <!-- het menu: onder elkaar op gsm, naast elkaar vanaf tablet -->
+      <nav id="menu" class="hidden w-full md:block md:w-auto" aria-label="Hoofdmenu">
+        <ul class="flex flex-col gap-1 py-2 md:flex-row md:py-0">
+          <li><a href="index.html" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Home</a></li>
+          <li><a href="portfolio.html" aria-current="page" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Portfolio</a></li>
+          <li><a href="project.html" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Project</a></li>
+          <li><a href="contact.html" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN + ASIDE -->
+  <div class="max-w-6xl mx-auto w-full px-4 py-8 flex-1 flex flex-col lg:flex-row gap-6">
+
+    <!-- MAIN -->
+    <main class="lg:w-3/4 bg-white border-2 border-olive rounded-lg p-6">
+      <p class="uppercase tracking-widest text-sm font-semibold text-olive mb-1">Portfolio</p>
+      <h1 class="text-3xl font-bold tracking-tight mb-6">Mijn projecten</h1>
+
+      <!-- raster: 1 kolom op gsm, 2 op tablet, 3 op laptop. Alle foto's in dezelfde verhouding -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article>
+          <img src="images/aquarel-golven.avif" alt="Groene en crèmekleurige golvende vormen" width="626" height="351" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Netwerkconfiguratie</a></h2>
+          <p class="text-sm">Een VLAN-netwerk met routing en switching via Cisco-apparatuur</p>
         </article>
-      </a>
-    </div>
 
-    <div class="col-md-4">
-      <a href="portfolio-website.html" class="card-link">
-        <article class="card h-100">
-          <figure class="mb-0">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" class="card-img-top project-card-img" alt="Code op een computerscherm">
-            <figcaption class="visually-hidden">Portfolio website project</figcaption>
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title h5">Portfolio Website</h2>
-            <p class="card-text small">Responsieve portfoliowebsite gemaakt met HTML5, CSS3 en Bootstrap.</p>
-            <span class="badge bg-dark">HTML</span>
-            <span class="badge bg-dark">CSS</span>
-            <span class="badge bg-dark">Bootstrap</span>
-          </div>
+        <article>
+          <img src="images/papier-golven.avif" alt="Lagen papier in groen, crème en beige" width="740" height="416" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Webserver setup</a></h2>
+          <p class="text-sm">Apache/Nginx installeren en instellen op een Linux-server</p>
         </article>
-      </a>
-    </div>
 
-    <div class="col-md-4">
-      <a href="linux-beheer.html" class="card-link">
-        <article class="card h-100">
-          <figure class="mb-0">
-            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=80" class="card-img-top project-card-img" alt="Linux terminal venster">
-            <figcaption class="visually-hidden">Linux beheer project</figcaption>
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title h5">Linux Beheer</h2>
-            <p class="card-text small">Gebruikers, rechten en services beheren op een Ubuntu-server.</p>
-            <span class="badge bg-dark">Linux</span>
-            <span class="badge bg-dark">Ubuntu</span>
-            <span class="badge bg-dark">Bash</span>
-          </div>
+        <article>
+          <img src="images/aquarel-vlakken.avif" alt="Abstracte vlakken in groen, bruin en zandkleur" width="740" height="415" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Portfolio website</a></h2>
+          <p class="text-sm">Responsieve website met HTML5, CSS3 en Bootstrap</p>
         </article>
-      </a>
-    </div>
 
-    <div class="col-md-4">
-      <a href="database-ontwerp.html" class="card-link">
-        <article class="card h-100">
-          <figure class="mb-0">
-            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&q=80" class="card-img-top project-card-img" alt="Database schema diagram">
-            <figcaption class="visually-hidden">Database ontwerp project</figcaption>
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title h5">Database Ontwerp</h2>
-            <p class="card-text small">Relationeel databaseontwerp en SQL-queries voor een inventarissysteem.</p>
-            <span class="badge bg-dark">SQL</span>
-            <span class="badge bg-dark">MySQL</span>
-          </div>
+        <article>
+          <img src="images/placeholder.png" alt="Nog geen afbeelding voor Linux beheer" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Linux beheer</a></h2>
+          <p class="text-sm">Gebruikers, rechten en services beheren op Ubuntu</p>
         </article>
-      </a>
-    </div>
 
-    <div class="col-md-4">
-      <a href="iot-project.html" class="card-link">
-        <article class="card h-100">
-          <figure class="mb-0">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" class="card-img-top project-card-img" alt="Raspberry Pi met sensoren">
-            <figcaption class="visually-hidden">IoT project met Raspberry Pi</figcaption>
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title h5">IoT-project</h2>
-            <p class="card-text small">Temperatuur- en vochtigheidsmonitoring met een Raspberry Pi en sensoren.</p>
-            <span class="badge bg-dark">IoT</span>
-            <span class="badge bg-dark">Raspberry Pi</span>
-            <span class="badge bg-dark">Python</span>
-          </div>
+        <article>
+          <img src="images/placeholder.png" alt="Nog geen afbeelding voor Database ontwerp" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Database ontwerp</a></h2>
+          <p class="text-sm">Databaseontwerp en SQL-queries voor een inventarissysteem</p>
         </article>
-      </a>
-    </div>
 
+        <article>
+          <img src="images/placeholder.png" alt="Nog geen afbeelding voor het IoT-project" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">IoT-project</a></h2>
+          <p class="text-sm">Temperatuur en vochtigheid meten met een Raspberry Pi</p>
+        </article>
+
+      </div>
+    </main>
+
+    <!-- ASIDE -->
+    <aside class="lg:w-1/4 bg-olive text-cream rounded-lg p-6 h-fit">
+      <h2 class="text-xl font-bold tracking-tight mb-3">Over mijn werk</h2>
+      <p class="text-sm mb-3">
+        Hier vind je de projecten die ik tijdens mijn opleiding gemaakt heb.
+      </p>
+      <p class="text-sm">
+        Klik op de naam van een project om meer uitleg te zien.
+      </p>
+    </aside>
   </div>
 
-</main>
+  <!-- FOOTER (op elke pagina hetzelfde) -->
+  <footer class="bg-forest text-cream">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <p>Samir Azaoum &bull; <a href="contact.html" class="underline underline-offset-4 hover:text-white">Contact</a> &bull; &copy; 2026</p>
 
-<footer class="text-center p-3 mt-4">
-  <p>&copy; 2026 Samir Azaoum Najah | <a href="contact.html">Contact</a></p>
-</footer>
+      <!-- links met alleen een icoon: de tekst staat in sr-only -->
+      <ul class="flex gap-2">
+        <li>
+          <a href="#" class="block p-2 rounded hover:bg-olive">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span class="sr-only">LinkedIn van Samir Azaoum</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="block p-2 rounded hover:bg-olive">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span class="sr-only">GitHub van Samir Azaoum</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
 
+  <!-- gsm menu open en dicht doen -->
+  <script>
+    const knop = document.getElementById('menuKnop');
+    const menu = document.getElementById('menu');
+
+    knop.addEventListener('click', function () {
+      menu.classList.toggle('hidden');
+      const open = !menu.classList.contains('hidden');
+      knop.setAttribute('aria-expanded', open);
+    });
+
+    // met Escape gaat het menu weer dicht
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden') && window.innerWidth < 768) {
+        menu.classList.add('hidden');
+        knop.setAttribute('aria-expanded', 'false');
+        knop.focus();
+      }
+    });
+  </script>
 </body>
 </html>
