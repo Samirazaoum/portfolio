@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* mijn eigen kleuren als Tailwind-klassen (bg-olive, text-forest, bg-cream, ...) */
+@theme {
+  --color-olive: #606c38;
+  --color-forest: #283618;
+  --color-cream: #fefae0;
+}

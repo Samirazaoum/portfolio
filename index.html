@@ -1,41 +1,19 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Samir Azaoum</title>
-  <link rel="icon" href="images/logo.png">
+  <title>Samir Azaoum — student systeem- en netwerkbeheer</title>
+  <meta name="description" content="Portfolio van Samir Azaoum Najah, student Graduaat Systeem- en netwerkbeheer. Bekijk mijn projecten in netwerken, Linux en webtechnologie.">
+  <link rel="icon" href="assets/images/logo.png">
 
   <!-- lettertype: Montserrat, alleen de diktes die ik gebruik (400, 600, 700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind (gebouwd met de CLI) en daaronder mijn eigen CSS -->
+  <link rel="stylesheet" href="css/tailwind.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Tailwind via de CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- mijn eigen kleuren -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            olive: '#606c38',
-            forest: '#283618',
-            cream: '#fefae0',
-          },
-        },
-      },
-      // de CDN-versie van Tailwind (v3) kent user-invalid nog niet, dus ik voeg die zelf toe
-      plugins: [
-        function ({ addVariant }) {
-          addVariant('user-invalid', '&:user-invalid');
-          addVariant('peer-user-invalid', ':merge(.peer):user-invalid ~ &');
-        },
-      ],
-    }
-  </script>
 </head>
 
 <body class="bg-cream text-forest min-h-screen flex flex-col">
@@ -47,7 +25,7 @@
   <header class="bg-cream border-b-2 border-olive">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 rounded">
-        <img src="images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
+        <img src="assets/images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
         <span class="font-bold uppercase tracking-widest text-sm">Samir Azaoum</span>
       </a>
 
@@ -76,7 +54,7 @@
     <main id="inhoud" class="lg:w-3/4 space-y-8">
 
       <!-- kopblok met achtergrondafbeelding en een donkere laag erover -->
-      <section class="relative overflow-hidden rounded-lg bg-[url('images/aquarel-vlakken.avif')] bg-cover bg-center">
+      <section class="relative overflow-hidden rounded-lg bg-[url(../assets/images/aquarel-vlakken.avif)] bg-cover bg-center">
         <div class="absolute inset-0 bg-forest/85"></div>
 
         <div class="relative flex flex-col-reverse md:flex-row items-center gap-8 p-8 md:p-10 text-cream">
@@ -93,7 +71,7 @@
           </div>
 
           <!-- ronde profielfoto (TODO: vervangen door mijn eigen foto) -->
-          <img src="images/placeholder.png" alt="Profielfoto van Samir Azaoum" width="400" height="400" class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover border-4 border-cream">
+          <img src="assets/images/placeholder.png" alt="Profielfoto van Samir Azaoum" width="400" height="400" class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover border-4 border-cream">
         </div>
       </section>
 
@@ -119,7 +97,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <article class="bg-white border-2 border-olive rounded-lg overflow-hidden">
-            <img src="images/aquarel-golven.avif" alt="Groene en crèmekleurige golvende vormen" width="626" height="351" class="w-full aspect-video object-cover">
+            <img src="assets/images/aquarel-golven.avif" alt="Groene en crèmekleurige golvende vormen" width="626" height="351" class="w-full aspect-video object-cover">
             <div class="p-4">
               <h3 class="font-bold"><a href="project.html" class="hover:text-olive hover:underline">Netwerkconfiguratie</a></h3>
               <p class="text-sm">Een VLAN-netwerk met routing en switching via Cisco-apparatuur</p>
@@ -127,7 +105,7 @@
           </article>
 
           <article class="bg-white border-2 border-olive rounded-lg overflow-hidden">
-            <img src="images/papier-golven.avif" alt="Lagen papier in groen, crème en beige" width="740" height="416" class="w-full aspect-video object-cover">
+            <img src="assets/images/papier-golven.avif" alt="Lagen papier in groen, crème en beige" width="740" height="416" class="w-full aspect-video object-cover">
             <div class="p-4">
               <h3 class="font-bold"><a href="project.html" class="hover:text-olive hover:underline">Webserver setup</a></h3>
               <p class="text-sm">Apache/Nginx installeren en instellen op een Linux-server</p>
@@ -135,7 +113,7 @@
           </article>
 
           <article class="bg-white border-2 border-olive rounded-lg overflow-hidden">
-            <img src="images/aquarel-vlakken.avif" alt="Abstracte vlakken in groen, bruin en zandkleur" width="740" height="415" class="w-full aspect-video object-cover">
+            <img src="assets/images/aquarel-vlakken.avif" alt="Abstracte vlakken in groen, bruin en zandkleur" width="740" height="415" class="w-full aspect-video object-cover">
             <div class="p-4">
               <h3 class="font-bold"><a href="project.html" class="hover:text-olive hover:underline">Portfolio website</a></h3>
               <p class="text-sm">Responsieve website met HTML5, CSS3 en Bootstrap</p>

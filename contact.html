@@ -1,41 +1,19 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Samir Azaoum</title>
-  <link rel="icon" href="images/logo.png">
+  <title>Contact — Samir Azaoum</title>
+  <meta name="description" content="Stuur Samir Azaoum een bericht over een stage, een project of een vraag via het contactformulier.">
+  <link rel="icon" href="assets/images/logo.png">
 
   <!-- lettertype: Montserrat, alleen de diktes die ik gebruik (400, 600, 700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind (gebouwd met de CLI) en daaronder mijn eigen CSS -->
+  <link rel="stylesheet" href="css/tailwind.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Tailwind via de CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- mijn eigen kleuren -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            olive: '#606c38',
-            forest: '#283618',
-            cream: '#fefae0',
-          },
-        },
-      },
-      // de CDN-versie van Tailwind (v3) kent user-invalid nog niet, dus ik voeg die zelf toe
-      plugins: [
-        function ({ addVariant }) {
-          addVariant('user-invalid', '&:user-invalid');
-          addVariant('peer-user-invalid', ':merge(.peer):user-invalid ~ &');
-        },
-      ],
-    }
-  </script>
 </head>
 
 <body class="bg-cream text-forest min-h-screen flex flex-col">
@@ -47,7 +25,7 @@
   <header class="bg-cream border-b-2 border-olive">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 rounded">
-        <img src="images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
+        <img src="assets/images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
         <span class="font-bold uppercase tracking-widest text-sm">Samir Azaoum</span>
       </a>
 
@@ -80,7 +58,8 @@
       <p class="text-sm mb-6">Velden met een <span class="font-bold text-red-700">*</span> zijn verplicht.</p>
 
       <!-- het formulier: velden onder elkaar zoals in mijn wireframe, maximaal max-w-xl breed -->
-      <form id="contactForm" action="#" method="get" class="max-w-xl space-y-5">
+      <!-- Netlify Forms vangt dit formulier op (werkt alleen online op Netlify) -->
+      <form name="contact" method="POST" data-netlify="true" class="max-w-xl space-y-5">
         <div>
           <label for="naam" class="block font-semibold mb-1">Naam <span class="text-red-700" aria-hidden="true">*</span></label>
           <input type="text" id="naam" name="naam" autocomplete="name" required
@@ -106,7 +85,7 @@
 
         <!-- korte privacyzin -->
         <p class="text-sm text-forest/70">
-          Privacy: ik gebruik je naam en e-mailadres alleen om op je bericht te antwoorden. Ik deel ze met niemand.
+          Privacy: je bericht wordt bewaard bij Netlify, de dienst achter deze site. Ik gebruik je naam en e-mailadres alleen om je te antwoorden en deel ze met niemand.
         </p>
 
         <!-- knop met een icoon -->
@@ -115,8 +94,6 @@
           Versturen
         </button>
 
-        <!-- dit bericht komt pas tevoorschijn na het versturen -->
-        <p id="bedankt" class="hidden text-olive font-semibold" role="status">Bedankt voor je bericht! Ik antwoord zo snel mogelijk.</p>
       </form>
     </main>
 
@@ -188,17 +165,6 @@
         knop.setAttribute('aria-expanded', 'false');
         knop.focus();
       }
-    });
-  </script>
-  <!-- formulier: er is nog geen server, dus ik toon gewoon een bedankt bericht -->
-  <script>
-    const form = document.getElementById('contactForm');
-    const bedankt = document.getElementById('bedankt');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      bedankt.classList.remove('hidden');
-      form.reset();
     });
   </script>
 </body>

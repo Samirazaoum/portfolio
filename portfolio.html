@@ -1,41 +1,19 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Samir Azaoum</title>
-  <link rel="icon" href="images/logo.png">
+  <title>Projecten — Samir Azaoum</title>
+  <meta name="description" content="Overzicht van mijn projecten: netwerkconfiguratie, webserver, Linux beheer, databaseontwerp en een IoT-project met een Raspberry Pi.">
+  <link rel="icon" href="assets/images/logo.png">
 
   <!-- lettertype: Montserrat, alleen de diktes die ik gebruik (400, 600, 700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind (gebouwd met de CLI) en daaronder mijn eigen CSS -->
+  <link rel="stylesheet" href="css/tailwind.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Tailwind via de CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- mijn eigen kleuren -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            olive: '#606c38',
-            forest: '#283618',
-            cream: '#fefae0',
-          },
-        },
-      },
-      // de CDN-versie van Tailwind (v3) kent user-invalid nog niet, dus ik voeg die zelf toe
-      plugins: [
-        function ({ addVariant }) {
-          addVariant('user-invalid', '&:user-invalid');
-          addVariant('peer-user-invalid', ':merge(.peer):user-invalid ~ &');
-        },
-      ],
-    }
-  </script>
 </head>
 
 <body class="bg-cream text-forest min-h-screen flex flex-col">
@@ -47,7 +25,7 @@
   <header class="bg-cream border-b-2 border-olive">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 rounded">
-        <img src="images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
+        <img src="assets/images/logo.png" alt="" width="240" height="240" class="w-14 h-14">
         <span class="font-bold uppercase tracking-widest text-sm">Samir Azaoum</span>
       </a>
 
@@ -81,37 +59,37 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <article>
-          <img src="images/aquarel-golven.avif" alt="Groene en crèmekleurige golvende vormen" width="626" height="351" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <img src="assets/images/aquarel-golven.avif" alt="Groene en crèmekleurige golvende vormen" width="626" height="351" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
           <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Netwerkconfiguratie</a></h2>
           <p class="text-sm">Een VLAN-netwerk met routing en switching via Cisco-apparatuur</p>
         </article>
 
         <article>
-          <img src="images/papier-golven.avif" alt="Lagen papier in groen, crème en beige" width="740" height="416" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <img src="assets/images/papier-golven.avif" alt="Lagen papier in groen, crème en beige" width="740" height="416" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
           <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Webserver setup</a></h2>
           <p class="text-sm">Apache/Nginx installeren en instellen op een Linux-server</p>
         </article>
 
         <article>
-          <img src="images/aquarel-vlakken.avif" alt="Abstracte vlakken in groen, bruin en zandkleur" width="740" height="415" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <img src="assets/images/aquarel-vlakken.avif" alt="Abstracte vlakken in groen, bruin en zandkleur" width="740" height="415" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
           <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Portfolio website</a></h2>
           <p class="text-sm">Responsieve website met HTML5, CSS3 en Bootstrap</p>
         </article>
 
         <article>
-          <img src="images/placeholder.png" alt="Nog geen afbeelding voor Linux beheer" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <img src="assets/images/placeholder.png" alt="Nog geen afbeelding voor Linux beheer" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
           <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Linux beheer</a></h2>
           <p class="text-sm">Gebruikers, rechten en services beheren op Ubuntu</p>
         </article>
 
         <article>
-          <img src="images/placeholder.png" alt="Nog geen afbeelding voor Database ontwerp" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <img src="assets/images/placeholder.png" alt="Nog geen afbeelding voor Database ontwerp" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
           <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">Database ontwerp</a></h2>
           <p class="text-sm">Databaseontwerp en SQL-queries voor een inventarissysteem</p>
         </article>
 
         <article>
-          <img src="images/placeholder.png" alt="Nog geen afbeelding voor het IoT-project" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
+          <img src="assets/images/placeholder.png" alt="Nog geen afbeelding voor het IoT-project" width="400" height="400" class="w-full aspect-[4/3] object-cover rounded border-2 border-olive">
           <h2 class="font-bold mt-2"><a href="project.html" class="hover:text-olive hover:underline">IoT-project</a></h2>
           <p class="text-sm">Temperatuur en vochtigheid meten met een Raspberry Pi</p>
         </article>
