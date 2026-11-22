@@ -7,21 +7,17 @@
   <meta name="description" content="Overzicht van mijn projecten: netwerkconfiguratie, webserver, Linux beheer, databaseontwerp en een IoT-project met een Raspberry Pi.">
   <link rel="icon" href="assets/images/logo.png">
 
-  <!-- lettertype: Montserrat, alleen de diktes die ik gebruik (400, 600, 700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Tailwind (gebouwd met de CLI) en daaronder mijn eigen CSS -->
   <link rel="stylesheet" href="css/tailwind.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="bg-cream text-forest min-h-screen flex flex-col">
 
-  <!-- skiplink: verschijnt pas als je met Tab op de pagina komt -->
   <a href="#inhoud" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-forest focus:text-cream focus:font-semibold focus:px-4 focus:py-2 focus:rounded">Naar de inhoud</a>
 
-  <!-- HEADER + NAV (op elke pagina hetzelfde) -->
   <header class="bg-cream border-b-2 border-olive">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 rounded">
@@ -29,13 +25,11 @@
         <span class="font-bold uppercase tracking-widest text-sm">Samir Azaoum</span>
       </a>
 
-      <!-- knop om het menu te openen op een gsm -->
       <button id="menuKnop" type="button" class="cursor-pointer md:hidden p-2 rounded hover:bg-olive hover:text-cream" aria-expanded="false" aria-controls="menu">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         <span class="sr-only">Menu openen</span>
       </button>
 
-      <!-- het menu: onder elkaar op gsm, naast elkaar vanaf tablet -->
       <nav id="menu" class="hidden w-full md:block md:w-auto" aria-label="Hoofdmenu">
         <ul class="flex flex-col gap-1 py-2 md:flex-row md:py-0">
           <li><a href="index.html" class="block px-3 py-2 rounded hover:bg-olive hover:text-cream aria-[current=page]:bg-forest aria-[current=page]:text-cream aria-[current=page]:font-semibold">Home</a></li>
@@ -47,15 +41,12 @@
     </div>
   </header>
 
-  <!-- MAIN + ASIDE -->
   <div class="max-w-6xl mx-auto w-full px-4 py-8 flex-1 flex flex-col lg:flex-row gap-6">
 
-    <!-- MAIN -->
     <main id="inhoud" class="lg:w-3/4 bg-white border-2 border-olive rounded-lg p-6">
       <p class="uppercase tracking-widest text-sm font-semibold text-olive mb-1">Portfolio</p>
       <h1 class="text-3xl font-bold tracking-tight mb-6">Mijn projecten</h1>
 
-      <!-- raster: 1 kolom op gsm, 2 op tablet, 3 op laptop. Alle foto's in dezelfde verhouding -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <article>
@@ -97,7 +88,6 @@
       </div>
     </main>
 
-    <!-- ASIDE -->
     <aside class="lg:w-1/4 bg-olive text-cream rounded-lg p-6 h-fit">
       <h2 class="text-xl font-bold tracking-tight mb-3">Over mijn werk</h2>
       <p class="text-sm mb-3">
@@ -109,12 +99,10 @@
     </aside>
   </div>
 
-  <!-- FOOTER (op elke pagina hetzelfde) -->
   <footer class="bg-forest text-cream">
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-2 text-sm">
       <p>Samir Azaoum &bull; <a href="contact.html" class="underline underline-offset-4 hover:text-white">Contact</a> &bull; &copy; 2026</p>
 
-      <!-- links met alleen een icoon: de tekst staat in sr-only -->
       <ul class="flex gap-2">
         <li>
           <a href="#" class="block p-2 rounded hover:bg-olive">
@@ -132,7 +120,6 @@
     </div>
   </footer>
 
-  <!-- gsm menu open en dicht doen -->
   <script>
     const knop = document.getElementById('menuKnop');
     const menu = document.getElementById('menu');
@@ -143,7 +130,6 @@
       knop.setAttribute('aria-expanded', open);
     });
 
-    // met Escape gaat het menu weer dicht
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !menu.classList.contains('hidden') && window.innerWidth < 768) {
         menu.classList.add('hidden');
