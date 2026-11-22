@@ -27,11 +27,21 @@
           },
         },
       },
+      // de CDN-versie van Tailwind (v3) kent user-invalid nog niet, dus ik voeg die zelf toe
+      plugins: [
+        function ({ addVariant }) {
+          addVariant('user-invalid', '&:user-invalid');
+          addVariant('peer-user-invalid', ':merge(.peer):user-invalid ~ &');
+        },
+      ],
     }
   </script>
 </head>
 
 <body class="bg-cream text-forest min-h-screen flex flex-col">
+
+  <!-- skiplink: verschijnt pas als je met Tab op de pagina komt -->
+  <a href="#inhoud" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-forest focus:text-cream focus:font-semibold focus:px-4 focus:py-2 focus:rounded">Naar de inhoud</a>
 
   <!-- HEADER + NAV (op elke pagina hetzelfde) -->
   <header class="bg-cream border-b-2 border-olive">
@@ -42,7 +52,7 @@
       </a>
 
       <!-- knop om het menu te openen op een gsm -->
-      <button id="menuKnop" type="button" class="md:hidden p-2 rounded hover:bg-olive hover:text-cream" aria-expanded="false" aria-controls="menu">
+      <button id="menuKnop" type="button" class="cursor-pointer md:hidden p-2 rounded hover:bg-olive hover:text-cream" aria-expanded="false" aria-controls="menu">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         <span class="sr-only">Menu openen</span>
       </button>
@@ -63,31 +73,44 @@
   <div class="max-w-6xl mx-auto w-full px-4 py-8 flex-1 flex flex-col lg:flex-row gap-6">
 
     <!-- MAIN -->
-    <main class="lg:w-3/4 bg-white border-2 border-olive rounded-lg p-6">
+    <main id="inhoud" class="lg:w-3/4 bg-white border-2 border-olive rounded-lg p-6">
       <p class="uppercase tracking-widest text-sm font-semibold text-olive mb-1">Contact</p>
       <h1 class="text-3xl font-bold tracking-tight mb-6">Neem contact op</h1>
 
-      <form id="contactForm" class="space-y-4">
+      <p class="text-sm mb-6">Velden met een <span class="font-bold text-red-700">*</span> zijn verplicht.</p>
+
+      <!-- het formulier: velden onder elkaar zoals in mijn wireframe, maximaal max-w-xl breed -->
+      <form id="contactForm" action="#" method="get" class="max-w-xl space-y-5">
         <div>
-          <label for="naam" class="block font-semibold mb-1">Naam</label>
+          <label for="naam" class="block font-semibold mb-1">Naam <span class="text-red-700" aria-hidden="true">*</span></label>
           <input type="text" id="naam" name="naam" autocomplete="name" required
-            class="w-full border-2 border-olive rounded px-3 py-2 focus:outline-none focus:border-forest focus:ring-2 focus:ring-olive">
+            class="peer w-full border-2 border-olive rounded-lg px-3 py-2 bg-white user-invalid:border-red-700">
+          <p class="hidden peer-user-invalid:block mt-1 text-sm font-semibold text-red-700">Fout: je naam ontbreekt. Vul je voor- en achternaam in.</p>
         </div>
 
         <div>
-          <label for="email" class="block font-semibold mb-1">E-mail</label>
-          <input type="email" id="email" name="email" autocomplete="email" required
-            class="w-full border-2 border-olive rounded px-3 py-2 focus:outline-none focus:border-forest focus:ring-2 focus:ring-olive">
+          <label for="email" class="block font-semibold mb-1">E-mailadres <span class="text-red-700" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-hulp"
+            class="peer w-full border-2 border-olive rounded-lg px-3 py-2 bg-white user-invalid:border-red-700">
+          <p id="email-hulp" class="mt-1 text-sm text-forest/70">Ik gebruik dit adres alleen om je te antwoorden.</p>
+          <p class="hidden peer-user-invalid:block mt-1 text-sm font-semibold text-red-700">Fout: dit is geen geldig e-mailadres. Gebruik de vorm naam@voorbeeld.be.</p>
         </div>
 
         <div>
-          <label for="bericht" class="block font-semibold mb-1">Bericht</label>
-          <textarea id="bericht" name="bericht" rows="6" required
-            class="w-full border-2 border-olive rounded px-3 py-2 focus:outline-none focus:border-forest focus:ring-2 focus:ring-olive"></textarea>
+          <label for="bericht" class="block font-semibold mb-1">Bericht <span class="text-red-700" aria-hidden="true">*</span></label>
+          <textarea id="bericht" name="bericht" rows="6" minlength="10" required aria-describedby="bericht-hulp"
+            class="peer w-full border-2 border-olive rounded-lg px-3 py-2 bg-white user-invalid:border-red-700"></textarea>
+          <p id="bericht-hulp" class="mt-1 text-sm text-forest/70">Schrijf minstens 10 tekens.</p>
+          <p class="hidden peer-user-invalid:block mt-1 text-sm font-semibold text-red-700">Fout: je bericht is leeg of te kort. Schrijf minstens 10 tekens.</p>
         </div>
+
+        <!-- korte privacyzin -->
+        <p class="text-sm text-forest/70">
+          Privacy: ik gebruik je naam en e-mailadres alleen om op je bericht te antwoorden. Ik deel ze met niemand.
+        </p>
 
         <!-- knop met een icoon -->
-        <button type="submit" class="inline-flex items-center gap-2 bg-olive text-cream font-semibold px-6 py-3 rounded hover:bg-forest">
+        <button type="submit" class="cursor-pointer inline-flex items-center gap-2 bg-olive text-cream font-semibold px-6 py-3 rounded-lg hover:bg-forest">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
           Versturen
         </button>

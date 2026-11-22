@@ -27,11 +27,21 @@
           },
         },
       },
+      // de CDN-versie van Tailwind (v3) kent user-invalid nog niet, dus ik voeg die zelf toe
+      plugins: [
+        function ({ addVariant }) {
+          addVariant('user-invalid', '&:user-invalid');
+          addVariant('peer-user-invalid', ':merge(.peer):user-invalid ~ &');
+        },
+      ],
     }
   </script>
 </head>
 
 <body class="bg-cream text-forest min-h-screen flex flex-col">
+
+  <!-- skiplink: verschijnt pas als je met Tab op de pagina komt -->
+  <a href="#inhoud" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-forest focus:text-cream focus:font-semibold focus:px-4 focus:py-2 focus:rounded">Naar de inhoud</a>
 
   <!-- HEADER + NAV (op elke pagina hetzelfde) -->
   <header class="bg-cream border-b-2 border-olive">
@@ -42,7 +52,7 @@
       </a>
 
       <!-- knop om het menu te openen op een gsm -->
-      <button id="menuKnop" type="button" class="md:hidden p-2 rounded hover:bg-olive hover:text-cream" aria-expanded="false" aria-controls="menu">
+      <button id="menuKnop" type="button" class="cursor-pointer md:hidden p-2 rounded hover:bg-olive hover:text-cream" aria-expanded="false" aria-controls="menu">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         <span class="sr-only">Menu openen</span>
       </button>
@@ -63,7 +73,7 @@
   <div class="max-w-6xl mx-auto w-full px-4 py-8 flex-1 flex flex-col lg:flex-row gap-6">
 
     <!-- MAIN -->
-    <main class="lg:w-3/4 space-y-8">
+    <main id="inhoud" class="lg:w-3/4 space-y-8">
 
       <!-- kopblok met achtergrondafbeelding en een donkere laag erover -->
       <section class="relative overflow-hidden rounded-lg bg-[url('images/aquarel-vlakken.avif')] bg-cover bg-center">

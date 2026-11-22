@@ -2,3 +2,15 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+/* dezelfde zichtbare focusstijl voor alle links, knoppen en velden op alle pagina's.
+   Een donkere rand met een lichte rand ertussen, zodat je hem ziet op een lichte
+   en op een donkere achtergrond. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #283618;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #fefae0;
+}
